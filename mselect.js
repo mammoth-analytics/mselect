@@ -115,7 +115,8 @@ mSelect.directive('mSelect',
                             '<ul>' +
                              null_html +
                              seperator_html +
-                            '<li ng-repeat="$item in ' + iAttrs.mRepeat +'" ng-click="assign_to_model($item)">' +
+                            '<li ng-repeat="$item in ' + iAttrs.mRepeat +'" ng-click="assign_to_model($item)" ' +
+                                'ng-class="{selected: $item == $selected}">' +
                             item_template +
                             '</li>' +
                             '</ul>' +
