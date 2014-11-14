@@ -1,3 +1,10 @@
+.fa-chevron-down:before {
+    content: "\f078";
+}
+.fa-chevron-up:before {
+    content: "\f078";
+}
+
 .mselect {
     font-size: 0px !important;
     min-width: 250px;
