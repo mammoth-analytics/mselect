@@ -8,8 +8,8 @@ mSelect.controller('mSelectCtrl', [
 ]);
 
 mSelect.directive('mSelect',
-    [   '$compile', '$controller', '$timeout', '$rootScope',
-        function ($compile, $controller, $timeout, $rootScope) {
+    [   '$compile', '$controller', '$timeout', '$rootScope', '$parse',
+        function ($compile, $controller, $timeout, $rootScope, $parse) {
             return {
                 restrict: 'E',
                 link: function (parentScope, domEle, iAttrs) {
@@ -67,9 +67,10 @@ mSelect.directive('mSelect',
                         else {
                             value = $item
                         }
-                        parentScope.$eval(function (parentScope) {
-                            parentScope[iAttrs.mModel] = value;
-                        })
+
+                        var model = $parse(iAttrs.mModel);
+                        model.assign(parentScope, value)
+
                         scope.$selected = $item;
                         if (iAttrs.mOnselectCallback) {
                             if (iAttrs.mOnselectCallback) {
@@ -79,10 +80,11 @@ mSelect.directive('mSelect',
                     }
 
                     scope.set_null = function(){
-                        parentScope.$eval(function (parentScope) {
-                            parentScope[iAttrs.mModel] = null;
-                        })
                         scope.$selected = null;
+
+                        var model = $parse(iAttrs.mModel);
+                        model.assign(parentScope, null)
+
                         if (iAttrs.mOnselectCallback) {
                             if (iAttrs.mOnselectCallback) {
                                 parentScope.$eval(iAttrs.mOnselectCallback, {$item: null})

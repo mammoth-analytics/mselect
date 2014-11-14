@@ -22,6 +22,10 @@ angular.module('testApp', ['mSelect']).controller('testCtrl', [
         $scope.model_6 = null;
         $scope.model_7 = null;
 
+        $scope.model_13 = {
+            value: 'X'
+        }
+
 
         $scope.callback_4 = function(value){
             alert(value.display + ' selected')
