@@ -129,22 +129,29 @@ mSelect.directive('mSelect',
                     }
                     var find_model_value_and_set = function(){
                         var model_current_val = parentScope.$eval(iAttrs.mModel);
-                        var iterable = parentScope.$eval(iAttrs.mRepeat)
-                        for(var i = 0; i < iterable.length; i++){
-                            var item = iterable[i];
-                            var value;
-                            if(iAttrs.mValue){
-                                var attr = iAttrs.mValue.replace('$item.', '');
-                                value = item[attr];
-                            }
-                            else{
-                                value = item;
-                            }
-                            if (model_current_val == value) {
-                                scope.$selected = item;
-                                break;
+                        if(model_current_val === null){
+                            scope.$selected = null;
+                        }
+                        else{
+                            var iterable = parentScope.$eval(iAttrs.mRepeat);
+
+                            for (var i = 0; i < iterable.length; i++) {
+                                var item = iterable[i];
+                                var value;
+                                if (iAttrs.mValue) {
+                                    var attr = iAttrs.mValue.replace('$item.', '');
+                                    value = item[attr];
+                                }
+                                else {
+                                    value = item;
+                                }
+                                if (model_current_val == value) {
+                                    scope.$selected = item;
+                                    break;
+                                }
                             }
                         }
+
                     }
 
                     iAttrs.$observe('mRepeat', function () {
