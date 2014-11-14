@@ -6,7 +6,7 @@
 <body ng-app="testApp" ng-controller="testCtrl">
     <div>
         <div>
-            Type1
+            Demo 1
         </div>
         <m-select m-repeat="iterable_1" m-model="model_1">
 
@@ -14,7 +14,7 @@
     </div>
     <div>
         <div>
-            Type2
+            Demo 2
         </div>
         <m-select m-repeat="iterable_2" m-model="model_2">
             <m-item><span style="color:red;" ng-bind="$item.display"></span></m-item>
@@ -22,7 +22,7 @@
     </div>
     <div>
         <div>
-            Type3: $item attr assigned to model
+            Demo 3: $item attr assigned to model
         </div>
         <m-select m-repeat="iterable_2" m-model="model_3" m-value="$item.value">
             <m-item><span style="color:green;" ng-bind="$item.display"></span></m-item>
@@ -30,7 +30,7 @@
     </div>
     <div>
         <div>
-            Type4 on select callback
+            Demo 4 on select callback
         </div>
         <m-select m-repeat="iterable_2" m-model="model_4" m-onselect-callback="callback_4($item)">
             <m-item><span style="color:pink;" ng-bind="$item.display"></span></m-item>
@@ -38,7 +38,7 @@
     </div>
     <div>
         <div>
-            Type 5 with null
+            Demo 5 with null
         </div>
         <m-select m-repeat="iterable_2" m-model="model_5">
             <m-null><span style="color: green;">Default value</span></m-null>
@@ -48,7 +48,7 @@
     </div>
     <div>
         <div>
-            Type 6 with null, separator
+            Demo 6 with null, separator
         </div>
         <m-select m-repeat="iterable_2" m-model="model_6">
             <m-null>
@@ -60,7 +60,7 @@
     </div>
     <div>
         <div>
-            Type 7: dynamic
+            Demo 7: dynamic
         </div>
         <m-select m-repeat="iterable_2" m-model="model_7" m-value="$item.value">
             <m-null>
@@ -79,14 +79,44 @@
     </div>
     <div>
         <div>
-            Type 8: Filter
+            Demo 8: Filter
         </div>
-        <m-select m-repeat="iterable_2 | filter: {value: 'A'}" m-model="model_2">
+        <m-select m-repeat="iterable_2 | filter: 'A'" m-model="model_8">
             <m-item><span style="color:red;" ng-bind="$item.display"></span></m-item>
         </m-select>
     </div>
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="angular.js"></script>
-    <script type="text/javascript" src="mselect.js"></script>
-    <script type="text/javascript" src="test.js"></script>
+    <div>
+        <div>
+            Demo 9: Themes
+        </div>
+        <m-select m-repeat="iterable_2" m-class="dark" m-model="model_9">
+            <m-item><span ng-bind="$item.display"></span></m-item>
+        </m-select>
+        <m-select m-repeat="iterable_2" m-class="large" m-model="model_10">
+            <m-item><span ng-bind="$item.display"></span></m-item>
+        </m-select>
+        <m-select m-repeat="iterable_1" m-class="small" m-model="model_11">
+        </m-select>
+    </div>
+
+    <div>
+        <div>
+            Demo 10: reverse
+        </div>
+        <m-select m-repeat="iterable_2" m-class="dark" m-model="model_12"
+                m-reverse>
+            <m-item><span ng-bind="$item.display"></span></m-item>
+        </m-select>
+
+        <m-select
+                m-repeat="iterable_1" m-model="model_13"
+                m-reverse>
+        </m-select>
+    </div>
+
+
+    <script demo="text/javascript" src="jquery.js"></script>
+    <script demo="text/javascript" src="angular.js"></script>
+    <script demo="text/javascript" src="mselect.js"></script>
+    <script demo="text/javascript" src="test.js"></script>
 </body>

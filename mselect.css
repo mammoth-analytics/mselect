@@ -8,8 +8,12 @@
     vertical-align: middle;
 }
 
+.mselect.small {
+    min-width: 20px;
+}
+
 .mselect .ms_selected {
-    border-radius: 5px;
+    border-radius: 3px;
     border: 1px solid #e2e2e2;
     background: #f5f5f5;
     padding: 3px 20px;
@@ -25,9 +29,27 @@
     min-height: 18px;
 }
 
+.mselect.dark .ms_selected {
+    background: #444;
+    color: #ccc;
+    border: none;
+}
+
 .mselect.large .ms_selected {
     padding: 5px 15px;
     padding-right: 35px;
+}
+
+.mselect.small .ms_selected {
+    min-height: 12px;
+    font-size: 12px;
+    padding: 2px 15px;
+    padding-right: 25px;
+}
+
+.mselect.lesspadding .ms_selected {
+    padding: 2px 5px;
+    padding-right: 20px;
 }
 
 .mselect .ms_selected.highlight {
@@ -35,7 +57,8 @@
 }
 
 .mselect.multi .ms_selected {
-    max-height: none;
+    max-height: 150px;
+    overflow: auto;
 }
 
 .mselect .ms_selected.unselected {
@@ -48,7 +71,7 @@
 
 .mselect .ms_selected .li {
     position: relative;
-    padding: 0px 30px;
+    padding: 0px 15px;
     display: block;
     border-radius: 5px;
     text-align: left;
@@ -62,22 +85,12 @@
 
 .mselect.multi .ms_selected .li {
     background: #fff;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
+    margin-top: 2px;
     padding: 1px 30px;
     border: 1px solid #e2e2e2;
 }
 
-.mselect .ms_selected .li .globaldatatypeicon {
-    top: 0px !important;
-    left: -7px !important;
-    position: absolute;
-}
-
-.mselect.multi .ms_selected .li .globaldatatypeicon {
-    top: 2px !important;
-    left: -2px !important;
-    position: absolute;
-}
 
 .mselect .ms_button {
     position: absolute;
@@ -88,6 +101,16 @@
     padding-right: 3px;
     border-radius: 4px;
     cursor: pointer;
+    opacity: .2;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.mselect:hover > .ms_button {
+    opacity: 1;
 }
 
 .mselect.large .ms_button {
@@ -95,9 +118,19 @@
     padding-right: 7px;
 }
 
+.mselect.small .ms_button {
+    padding: 1px 5px;
+    padding-right: 7px;
+    right: 5px;
+}
+
 .mselect .ms_button i {
     font-size: 15px;
     letter-spacing: 0px;
+}
+
+.mselect.small .ms_button i {
+    font-size: 12px;
 }
 
 .mselect .ms_button,
@@ -117,14 +150,25 @@
     color: #CC6600;
 }
 
+.mselect.dark .ms_button {
+    color: #fff;
+}
+
+.mselect.dark .ms_button:hover {
+    background: #ccc;
+}
+
+.mselect.dark .ms_button:hover > i {
+    color: #CC6600;
+}
+
 .mselect .ms_selection {
     position: absolute;
     top: 27px;
     right: 0px;
     background: #fdfdfd;
-    border-radius: 4px;
+    border-radius: 3px;
     border: 1px solid #e2e2e2;
-    box-shadow: 2px 2px 10px #ccc;
     width: 100%;
     padding: 5px;
     -moz-box-sizing: border-box;
@@ -145,8 +189,22 @@
     top: 30px;
 }
 
+.mselect.small .ms_selection {
+    top: 23px;
+}
+
 .mselect.multi .ms_selection {
     padding-bottom: 35px;
+}
+
+.mselect.reverse .ms_selection {
+    top: auto;
+    bottom: 27px;
+}
+
+.mselect.reverse.large .ms_selection {
+    bottom: 30px;
+    top: auto;
 }
 
 .mselect .ms_selection .multitext {
@@ -169,7 +227,7 @@
 .mselect .ms_selection .multitext button {
     position: absolute;
     right: 10px;
-    top: 2px;
+    top: 4px;
     padding: 4px 20px;
 }
 
@@ -194,21 +252,26 @@
     border: 1px solid transparent;
     word-wrap: break-word;
     word-break: break-all;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 1px;
     position: relative;
-    z-index: -1;
+    text-align: center;
 }
 
-.mselect .ms_selection li .globaldatatypeicon {
-    top: 3px !important;
-    left: -2px;
-    position: absolute;
+.mselect.small .ms_selection li {
+    padding: 1px 10px;
+    padding-left: 28px;
 }
+
+.mselect.lesspadding .ms_selection li {
+    padding: 2px 5px;
+}
+
 
 .mselect .ms_selection li:hover {
     background: #fff;
     border-color: #e2e2e2;
+    color: #006666;
 }
 
 .mselect .ms_selection li:active {
@@ -227,6 +290,21 @@
     color: #ccc;
 }
 
+.mselect .ms_selection li.unselectable {
+    color: #999;
+}
+
+.mselect .ms_selection li.unselectable:hover {
+    background: transparent;
+    border-color: transparent;
+    color: #999;
+    cursor: default;
+}
+
+.mselect .ms_selection li.indent {
+    padding-left: 50px;
+}
+
 .ms_hiddencb[type=checkbox] {
     display: none;
 }
@@ -234,10 +312,6 @@
 .ms_hiddencb[type=checkbox]:checked ~ .ms_selection {
     z-index: 100000000;
     opacity: 1;
-}
-
-.ms_hiddencb[type=checkbox]:checked ~ .ms_selection li {
-    z-index: 1
 }
 
 .ms_hiddencb[type=checkbox]:checked ~ .ms_button {
@@ -249,4 +323,3 @@
 
 .ms_hiddencb[type=checkbox]:checked ~ .ms_button i {
 }
-
