@@ -44,7 +44,18 @@ mSelect.directive('mSelect',
 
                     var scope = parentScope.$new()
 
-                    scope.iterable = parentScope.$eval(iAttrs.mRepeat);
+                    var filter_expression = ''
+
+                    if(iAttrs.mRepeat.split('|'). length > 1){
+                        var repeat_expression_split = iAttrs.mRepeat.split('|');
+                        var iterable_expression = repeat_expression_split[0].trim()
+                        scope.iterable = parentScope.$eval(iterable_expression);
+                        filter_expression = '| ' +  repeat_expression_split[1].trim();
+                    }
+                    else{
+                        scope.iterable = parentScope.$eval(iAttrs.mRepeat)
+                    }
+
 
                     scope.$selected = null;
                     scope.assign_to_model = function ($item) {
@@ -102,7 +113,7 @@ mSelect.directive('mSelect',
                             '<ul>' +
                              null_html +
                              seperator_html +
-                            '<li ng-repeat="$item in iterable" ng-click="assign_to_model($item)">' +
+                            '<li ng-repeat="$item in iterable' + filter_expression + '" ng-click="assign_to_model($item)">' +
                             item_template +
                             '</li>' +
                             '</ul>' +

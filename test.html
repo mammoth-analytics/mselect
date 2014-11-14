@@ -77,6 +77,14 @@
             <m-item><span style="color:blue;" ng-bind="$item.display"></span></m-item>
         </m-select>
     </div>
+    <div>
+        <div>
+            Type 8: Filter
+        </div>
+        <m-select m-repeat="iterable_2 | filter: {value: 'A'}" m-model="model_2">
+            <m-item><span style="color:red;" ng-bind="$item.display"></span></m-item>
+        </m-select>
+    </div>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="angular.js"></script>
     <script type="text/javascript" src="mselect.js"></script>
