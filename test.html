@@ -124,6 +124,17 @@
         </m-select>
         value: {{model_13.value}}
     </div>
+    <div>
+        <div>
+            Demo 12: Inline array definitions
+        </div>
+        <m-select m-repeat="[1,2,3,4,5]" m-model="model_14"
+                m-reverse>
+            <m-null> nothing </m-null>
+        </m-select>
+        value: {{model_14}}
+    </div>
+
 
 
     <script demo="text/javascript" src="jquery.js"></script>
