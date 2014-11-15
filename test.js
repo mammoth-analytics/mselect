@@ -34,6 +34,5 @@ angular.module('testApp', ['mSelect']).controller('testCtrl', [
         $scope.click_default = function(){
             alert('default clicked')
         }
-
     }
 ])
