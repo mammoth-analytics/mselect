@@ -1,0 +1,332 @@
+.fa-chevron-down:before {
+    content: "\f078";
+}
+.fa-chevron-up:before {
+    content: "\f078";
+}
+
+.mselect {
+    font-size: 0px !important;
+    min-width: 250px;
+    max-width: 350px;
+    position: relative;
+    color: #666;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mselect.small {
+    min-width: 20px;
+}
+
+.mselect .ms_selected {
+    border-radius: 3px;
+    border: 1px solid #e2e2e2;
+    background: #f5f5f5;
+    padding: 3px 20px;
+    padding-right: 30px;
+    position: relative;
+    word-break: break-all;
+    word-wrap: break-word;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    max-height: 18px;
+    min-height: 18px;
+}
+
+.mselect.dark .ms_selected {
+    background: #444;
+    color: #ccc;
+    border: none;
+}
+
+.mselect.large .ms_selected {
+    padding: 5px 15px;
+    padding-right: 35px;
+}
+
+.mselect.small .ms_selected {
+    min-height: 12px;
+    font-size: 12px;
+    padding: 2px 15px;
+    padding-right: 25px;
+}
+
+.mselect.lesspadding .ms_selected {
+    padding: 2px 5px;
+    padding-right: 20px;
+}
+
+.mselect .ms_selected.highlight {
+    background: #ffffdd;
+}
+
+.mselect.multi .ms_selected {
+    max-height: 150px;
+    overflow: auto;
+}
+
+.mselect .ms_selected.unselected {
+    color: #ccc;
+    letter-spacing: 1px;
+    font-size: 13px;
+    text-align: center;
+    text-shadow: 0px 1px 1px #fff;
+}
+
+.mselect .ms_selected .li {
+    position: relative;
+    padding: 0px 15px;
+    display: block;
+    border-radius: 5px;
+    text-align: left;
+    display: table;
+    margin: 0px auto;
+}
+
+.mselect.large .ms_selected .li {
+    padding: 2px 30px;
+}
+
+.mselect.multi .ms_selected .li {
+    background: #fff;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding: 1px 30px;
+    border: 1px solid #e2e2e2;
+}
+
+
+.mselect .ms_button {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    font-size: 0px;
+    padding: 1px 4px;
+    padding-right: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: .2;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.mselect:hover > .ms_button {
+    opacity: 1;
+}
+
+.mselect.large .ms_button {
+    padding: 3px 8px;
+    padding-right: 7px;
+}
+
+.mselect.small .ms_button {
+    padding: 1px 5px;
+    padding-right: 7px;
+    right: 5px;
+}
+
+.mselect .ms_button i {
+    font-size: 15px;
+    letter-spacing: 0px;
+}
+
+.mselect.small .ms_button i {
+    font-size: 12px;
+}
+
+.mselect .ms_button,
+.mselect .ms_button i {
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+
+.mselect .ms_button:hover {
+    background: #fff;
+}
+
+.mselect .ms_button:hover > i {
+    color: #CC6600;
+}
+
+.mselect.dark .ms_button {
+    color: #fff;
+}
+
+.mselect.dark .ms_button:hover {
+    background: #ccc;
+}
+
+.mselect.dark .ms_button:hover > i {
+    color: #CC6600;
+}
+
+.mselect .ms_selection {
+    position: absolute;
+    top: 27px;
+    right: 0px;
+    background: #fdfdfd;
+    border-radius: 3px;
+    border: 1px solid #e2e2e2;
+    width: 100%;
+    padding: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    z-index: -11;
+    opacity: 0;
+}
+
+.mselect.large .ms_selection {
+    top: 30px;
+}
+
+.mselect.small .ms_selection {
+    top: 23px;
+}
+
+.mselect.multi .ms_selection {
+    padding-bottom: 35px;
+}
+
+.mselect.reverse .ms_selection {
+    top: auto;
+    bottom: 27px;
+}
+
+.mselect.reverse.large .ms_selection {
+    bottom: 30px;
+    top: auto;
+}
+
+.mselect .ms_selection .multitext {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    position: inherit;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 35px;
+    font-size: 13px;
+    color: #ccc;
+    letter-spacing: 1px;
+    padding: 10px;
+    border-top: 1px solid #e2e2e2;
+}
+
+.mselect .ms_selection .multitext button {
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    padding: 4px 20px;
+}
+
+.mselect .ms_selection ul {
+    overflow: auto;
+    max-height: 130px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.mselect .ms_selection li {
+    cursor: pointer;
+    list-style: none;
+    padding: 2px 30px;
+    margin-bottom: 3px;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 13px;
+    letter-spacing: 1px;
+    position: relative;
+    text-align: center;
+}
+
+.mselect.small .ms_selection li {
+    padding: 1px 10px;
+    padding-left: 28px;
+}
+
+.mselect.lesspadding .ms_selection li {
+    padding: 2px 5px;
+}
+
+
+.mselect .ms_selection li:hover {
+    background: #fff;
+    border-color: #e2e2e2;
+    color: #006666;
+}
+
+.mselect .ms_selection li:active {
+    background: #fffffd;
+    color: #222;
+}
+
+.mselect .ms_selection li.selected {
+    background: #777;
+    color: #fff;
+}
+
+.mselect .ms_selection li.blank:after {
+    content: 'None';
+    font-style: italic;
+    color: #ccc;
+}
+
+.mselect .ms_selection li.unselectable {
+    color: #999;
+}
+
+.mselect .ms_selection li.unselectable:hover {
+    background: transparent;
+    border-color: transparent;
+    color: #999;
+    cursor: default;
+}
+
+.mselect .ms_selection li.indent {
+    padding-left: 50px;
+}
+
+.ms_hiddencb[type=checkbox] {
+    display: none;
+}
+
+.ms_hiddencb[type=checkbox]:checked ~ .ms_selection {
+    z-index: 100000000;
+    opacity: 1;
+}
+
+.ms_hiddencb[type=checkbox]:checked ~ .ms_button {
+    background: #fff;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.ms_hiddencb[type=checkbox]:checked ~ .ms_button i {
+}
