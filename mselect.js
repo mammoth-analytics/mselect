@@ -15,9 +15,11 @@ mSelect.directive('mSelect',
                 link: function (parentScope, domEle, iAttrs) {
                     var is_multi = false;
                     var class_string = '';
+                    var multi_text = ''
                     if (iAttrs.mMulti != undefined) {
                         is_multi = true;
                         class_string = "multi ";
+                        multi_text = '<div class="multitext"> Select 1 or more <button class="globalbtnstyle">Done</button> </div>'
                     }
 
                     var item_template_dom_element = $(domEle).children('m-item')
@@ -172,11 +174,12 @@ mSelect.directive('mSelect',
                             '<ul>' +
                              null_html +
                              seperator_html +
-                            '<li ng-repeat="$item in ' + iAttrs.mRepeat +'" ng-click="handle_item_click($item)" ' +
+                            '<li m-li-item ng-repeat="$item in ' + iAttrs.mRepeat +'" ng-click="handle_item_click($item)" ' +
                                 item_selected_class_string +
                             item_template +
                             '</li>' +
                             '</ul>' +
+                            multi_text +
                             '</div>' +
                             '</div>'
                         $(domEle).append($compile(template)(scope))
@@ -215,7 +218,14 @@ mSelect.directive('mSelect',
                             }
                         }
 
+                        var li_multi_click_handler = function(event){
+                            event.stopPropagation();
+                        }
+                        if(is_multi){
+                            $(domEle).find('.ms_selection').find('ul').bind('click', li_multi_click_handler)
+                        }
                         domEle.bind('click', directive_click_handler)
+
 
                     }
                     var find_model_value_and_set = function(){
