@@ -25,6 +25,8 @@ angular.module('testApp', ['mSelect']).controller('testCtrl', [
         $scope.model_13 = {
             value: 'X'
         }
+        $scope.model_15 = null;
+        $scope.model_16 = ['A']
 
 
         $scope.callback_4 = function(value){

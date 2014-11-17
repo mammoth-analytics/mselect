@@ -135,6 +135,28 @@
         value: {{model_14}}
     </div>
 
+    <div>
+        <div>
+            Demo 13 multi select
+        </div>
+        <m-select m-repeat="iterable_2" m-model="model_15" m-multi>
+            <m-null>
+                <div>Default Value</div>
+            </m-null>
+            <m-seperator><span>-----space-------</span></m-seperator>
+            <m-item><span style="color:blue;" ng-bind="$item.display"></span></m-item>
+        </m-select>
+
+        <m-select m-repeat="iterable_2" m-model="model_16" m-multi m-value="$item.value">
+            <m-null>
+                <div>Default Value</div>
+            </m-null>
+            <m-seperator><span>-----space-------</span></m-seperator>
+            <m-item><span style="color:blue;" ng-bind="$item.display"></span></m-item>
+        </m-select>
+    </div>
+
+
 
 
     <script demo="text/javascript" src="jquery.js"></script>
