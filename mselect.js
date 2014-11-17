@@ -126,9 +126,39 @@ mSelect.directive('mSelect',
 
                         var checkbox = domEle.find('.ms_hiddencb').first();
                         checkbox.prop('checked', false);
-                        domEle.click(function () {
-                            checkbox.prop('checked', !checkbox.prop('checked'));
-                        })
+                        var dropdown_open = false;
+
+                        var mselect_id = 1 + Math.floor(Math.random() * 10000); //do not want zero
+
+
+                        // When the directive's contents are clicked, the body click handler ignores the click event
+                        // this is done by making adding an attribute called mselect_id to thr original event
+                        // if this is not present or if it is not equal to the current mselect_id body event handler will
+                        // close the dropdown. Else the body event handler will simply ignore the event
+
+                        var directive_click_handler = function(event){
+                            dropdown_open = !dropdown_open;
+                            checkbox.prop('checked', dropdown_open);
+
+                            if(dropdown_open){
+                                $('html').bind('click', body_click_handler)
+                            }
+                            else{
+                                $('html').unbind('click', body_click_handler)
+                            }
+                            event.originalEvent.mselect_id = mselect_id;
+                        }
+
+                        var body_click_handler = function(event){
+                            if(event.originalEvent.mselect_id != mselect_id){
+                                dropdown_open = false;
+                                checkbox.prop('checked', dropdown_open);
+                                $('html').unbind('click', body_click_handler)
+                            }
+                        }
+
+                        domEle.bind('click', directive_click_handler)
+
                     }
                     var find_model_value_and_set = function(){
                         var model_current_val = parentScope.$eval(iAttrs.mModel);
