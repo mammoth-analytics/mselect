@@ -1,6 +1,7 @@
 .fa-chevron-down:before {
     content: "\f078";
 }
+
 .fa-chevron-up:before {
     content: "\f078";
 }
@@ -13,6 +14,15 @@
     color: #666;
     display: inline-block;
     vertical-align: middle;
+}
+
+.mselect.mselectabsolute {
+    position: absolute;
+}
+.mselect.relplaceholder {
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .mselect.small {
@@ -248,7 +258,7 @@
 .mselect .ms_selection li {
     cursor: pointer;
     list-style: none;
-    padding: 2px 30px;
+    padding: 2px 20px;
     margin-bottom: 3px;
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;

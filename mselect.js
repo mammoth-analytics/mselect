@@ -161,7 +161,7 @@ mSelect.directive('mSelect',
                         $(domEle).empty()
 
                         var template =
-                            '<div class="mselect ' + class_string + '">' +
+                            '<div class="mselect mselectabsolute ' + class_string + '" style="' + (iAttrs.mStyle || '') + '">' +
                             '<div class="ms_selected" ng-class="{highlight: !$selected}">' +
                             selected_item_template +
                             null_selected_html +
@@ -181,8 +181,10 @@ mSelect.directive('mSelect',
                             '</ul>' +
                             multi_text +
                             '</div>' +
-                            '</div>'
-                        $(domEle).append($compile(template)(scope))
+                            '</div>' +
+                            //placeholder div to fix positions of surrounding elements
+                            '<div class="mselect relplaceholder ' + class_string + '" style="' + (iAttrs.mStyle || '') + '"><div class="ms_selected"></div></div>';
+                        $(domEle).append($compile(template)(scope));
 
                         var checkbox = domEle.find('.ms_hiddencb').first();
                         checkbox.prop('checked', false);
@@ -246,7 +248,7 @@ mSelect.directive('mSelect',
                                 scope.$selected = []
                             }
                             else{
-                                scope.selected = null;
+                                scope.$selected = null;
                             }
 
                             for (var i = 0; i < iterable.length; i++) {
@@ -280,9 +282,12 @@ mSelect.directive('mSelect',
                         render()
                         find_model_value_and_set()
                     })
+                    parentScope.$watchCollection(iAttrs.mRepeat, function () {
+                        find_model_value_and_set();
+                    })
 
                     parentScope.$watch(iAttrs.mModel, function () {
-                        find_model_value_and_set()
+                        find_model_value_and_set();
                     })
                 }
             }
